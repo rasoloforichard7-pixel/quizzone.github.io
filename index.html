@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QuizZone – Tout-en-un</title>
+  <link rel="stylesheet" href="quizzone.css" />
+</head>
+<body>
+  <header class="quiz-header">
+    <h2>QuizZone</h2>
+    <div id="timer">⏱️ 01:00</div>
+  </header>
+
+  <div class="tabs">
+    <button id="tab-play" class="active">🎮 Jouer</button>
+    <button id="tab-create">✍️ Créer</button>
+  </div>
+
+  <main class="quiz-container">
+    <!-- Section JOUER -->
+    <section id="play-section" class="section active">
+      <div id="category-select">
+        <label for="category">Choisis une catégorie :</label>
+        <select id="category">
+          <option value="">-- Sélectionner --</option>
+          <option value="geographie">Géographie</option>
+          <option value="histoire">Histoire</option>
+          <option value="sciences">Sciences</option>
+        </select>
+        <button id="start-btn">Commencer</button>
+      </div>
+
+      <div id="quiz-content" style="display: none;">
+        <div id="question-number"></div>
+        <h3 id="question-text">Chargement...</h3>
+        <form id="answers-form"></form>
+        <div id="feedback" class="feedback"></div>
+        <button id="submit-btn">Valider</button>
+        <div class="quiz-footer">
+          <p>Score actuel : <span id="score">0</span> pts</p>
+          <progress id="progress-bar" value="1" max="5"></progress>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section CRÉER -->
+    <section id="create-section" class="section">
+      <h1>Ajouter une question</h1>
+
+      <label for="new-category">Catégorie</label>
+      <input type="text" id="new-category" placeholder="ex: géographie, histoire..." />
+
+      <label for="question">Question</label>
+      <textarea id="question" rows="2"></textarea>
+
+      <label for="option1">Option 1</label>
+      <input type="text" id="option1" />
+
+      <label for="option2">Option 2</label>
+      <input type="text" id="option2" />
+
+      <label for="option3">Option 3</label>
+      <input type="text" id="option3" />
+
+      <label for="option4">Option 4</label>
+      <input type="text" id="option4" />
+
+      <label for="answer">Bonne réponse</label>
+      <input type="text" id="answer" />
+
+      <button onclick="saveQuestion()">Enregistrer</button>
+
+      <div style="margin-top: 1rem;">
+        <button onclick="resetQuestions()" style="background:#dc3545;">🗑️ Réinitialiser tout</button>
+        <button onclick="exportQuestions()" style="background:#007bff; margin-left: 1rem;">📁 Exporter JSON</button>
+      </div>
+
+      <input type="file" id="import-file" accept=".json" style="margin-top: 1rem;" />
+      <button onclick="importQuestions()" style="background:#6f42c1; margin-top: 0.5rem;">📂 Importer JSON</button>
+
+      <div id="message" class="feedback success"></div>
+    </section>
+  </main>
+
+  <script src="quizzone.js" defer></script>
+</body>
+</html>

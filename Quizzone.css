@@ -1,0 +1,148 @@
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: #28a745;
+  --text-color: #111;
+  --muted: #666;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+.quiz-header {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+.tabs button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.tabs button.active {
+  background: var(--secondary-color);
+  color: white;
+}
+
+.quiz-container {
+  padding: 2rem;
+  max-width: 700px;
+  margin: auto;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 1rem;
+  display: block;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+#question-number {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+#question-text {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+#answers-form label {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#answers-form input[type="radio"] {
+  margin-right: 0.5rem;
+}
+
+button, #submit-btn {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.quiz-footer {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+progress {
+  width: 100%;
+  height: 20px;
+  margin-top: 0.5rem;
+  appearance: none;
+  border: 1px solid #222;
+  border-radius: 10px;
+  background-color: #eee;
+  transition: all 0.4s ease-in-out;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  transition: width 0.4s ease-in-out;
+}
+
+.feedback {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  height: 1.5rem;
+}
+
+.feedback.success {
+  color: green;
+}
+
+.feedback.error {
+  color: red;
+}
+
+.section {
+  display: none;
+}
+
+.section.active {
+  display: block;
+}
